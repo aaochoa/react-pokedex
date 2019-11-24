@@ -15,11 +15,10 @@ export default class Pokemon extends Component {
 
     async componentDidMount() {
         const {pokemonIndex} = this.props.match.params
-        console.log(pokemonIndex)
         const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`
         const pokeRes = await Axios.get(pokemonUrl)
-        console.log(pokeRes)
-        this.setState({imageUrl: pokeRes.data.sprites.front_default, pokemonIndex, name: pokeRes.data.name, types: pokeRes.data.types, height: pokeRes.data.height, weight: pokeRes.data.weight, moves: pokeRes.data.moves})
+        const types = pokeRes.data.types.map(type => type.type.name);
+        this.setState({imageUrl: pokeRes.data.sprites.front_default, pokemonIndex, name: pokeRes.data.name, types, height: pokeRes.data.height, weight: pokeRes.data.weight, moves: pokeRes.data.moves})
     }
 
     render() {
@@ -40,7 +39,7 @@ export default class Pokemon extends Component {
                                 <div className="col-md-8">
                                     <div className="card">
                                         <div className="card-body">
-                                            <h5 className="card-title">Stats</h5>
+                                            <h5 className="card-title">Information</h5>
                                             {this.state.types.map(elem => (
                                                 <p>{elem.type.name}</p>
                                             ))}
