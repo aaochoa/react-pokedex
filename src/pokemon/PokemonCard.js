@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 
-import spinner from "../layout/spinner.gif"
+import spinner from "../spinner.gif"
 
 const Sprite = styled.img`
   width: 7rem;
@@ -54,7 +54,7 @@ export default class PokemonCard extends Component {
         return (
             <div className="col-md-3 col-sm-6 mb-5">
                 <StyledLink className="card-link" to={`pokemon/${this.state.pokemonIndex}`}> 
-                    <Card className="card">
+                    <Card className="card text-white bg-danger mb-3">
                         <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.toManyRequests ? (
                             <h6 className="mx-auto">
