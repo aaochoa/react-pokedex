@@ -50,30 +50,30 @@ export default class PokemonCard extends Component {
     this.setState({ name, imageUrl, pokemonIndex });
   }
 
-    render() {
-        return (
-            <div className="col-md-3 col-sm-6 mb-5">
-                <StyledLink className="card-link" to={`pokemon/${this.state.pokemonIndex}`}> 
-                    <Card className="card text-white bg-danger mb-3">
-                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
-                        {this.state.toManyRequests ? (
-                            <h6 className="mx-auto">
-                            <span className="badge badge-danger mt-2">To Many Requests</span>
-                            </h6>
-                        ) : null}
-                        <div className="card-body mx-auto">
-                            <h6 className="card-title">
-                                {this.state.name.split(" ").map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(" ")}
-                            </h6>
-                            {this.state.imageLoading ? (
-                                <img src={spinner} style={{ width: "5em", height: "5em" }} alt={`pokemon${this.state.pokemonIndex}`} className="card-img-mid rounded mx-auto d-block mt-2"/>
-                            ) : null}
-                            <Sprite className="card-img-top rounded mx-auto mt-2" src={this.state.imageUrl} onLoad={() => this.setState({ imageLoading: false })} onError={() => this.setState({ toManyRequests: true })}
-                            style={ this.state.toManyRequests ? { display: "none" } : this.state.imageLoading ? null : { display: "block" }}/>
-                        </div>
-                    </Card>
-                </StyledLink>
+  render() {
+    return (
+      <div className="col-md-3 col-sm-6 mb-5" id={this.state.name}>
+        <StyledLink className="card-link" to={`pokemon/${this.state.pokemonIndex}`}> 
+          <Card className="card text-white bg-danger mb-3">
+            <h5 className="card-header">{this.state.pokemonIndex}</h5>
+             {this.state.toManyRequests ? (
+                <h6 className="mx-auto">
+                <span className="badge badge-danger mt-2">To Many Requests</span>
+                </h6>
+             ) : null}
+            <div className="card-body mx-auto">
+              <h6 className="card-title">
+                  {this.state.name.split(" ").map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(" ")}
+              </h6>
+              {this.state.imageLoading ? (
+                  <img src={spinner} style={{ width: "5em", height: "5em" }} alt={`pokemon${this.state.pokemonIndex}`} className="card-img-mid rounded mx-auto d-block mt-2"/>
+              ) : null}
+              <Sprite className="card-img-top rounded mx-auto mt-2" src={this.state.imageUrl} onLoad={() => this.setState({ imageLoading: false })} onError={() => this.setState({ toManyRequests: true })}
+              style={ this.state.toManyRequests ? { display: "none" } : this.state.imageLoading ? null : { display: "block" }}/>
             </div>
-        )
-    }
+          </Card>
+        </StyledLink>
+      </div>
+    )
+  }
 }

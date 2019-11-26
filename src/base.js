@@ -1,5 +1,5 @@
-import * as firebase from "firebase/app";
-import "firebase/auth";
+import * as firebase from 'firebase'
+require('firebase/auth')
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -8,6 +8,6 @@ const app = firebase.initializeApp({
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
-});
+})
 
-export default app;
+export default app

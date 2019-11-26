@@ -34,18 +34,23 @@ const Login = ({ history }) => {
         <form className="card-text" onSubmit={handleLogin} style={{marginBottom: '0.5rem'}}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input name="email" type="email" placeholder="Email" />
+            <input name="email" className="form-control" type="email" placeholder="Email" onChange={e => onChangeEmail(e)}/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input name="password" type="password" placeholder="Password" />
+            <input name="password" className="form-control" type="password" placeholder="Password" />
           </div>
           <button className="btn btn-light" type="submit">Log in</button>
         </form>
         <Link to="/signup" className="btn btn-light">Register</Link>
       </div>
     </div>
-  );
-};
+  )
+}
+
+const onChangeEmail = (e) => {
+  if (e.target.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.target.style.background = 'lightgreen' 
+  else e.target.style.background = 'wheat'
+}
 
 export default withRouter(Login);
