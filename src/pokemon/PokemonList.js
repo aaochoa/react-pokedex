@@ -66,7 +66,7 @@ export default class PokemonList extends Component {
   render () {
     return (
       <div key="pokeList" ref="pokeScroller">
-        <div className="row mx-auto navbar" style={{marginBottom: '1rem'}}>
+        <div className="row mx-auto navbar fixed-top secondaryNav">
           <div className="col-md-6 mx-auto">
             <h2 className='white-text'>Welcome, {app.auth().currentUser.displayName} - Filter Pokemon</h2>
             <div className="form-group">

@@ -24,3 +24,9 @@
 .white-text {
   color: #fafafa;
 }
+
+.secondaryNav {
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 4.5rem;
+}
