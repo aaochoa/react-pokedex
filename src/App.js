@@ -14,15 +14,15 @@ import PrivateRoute from "./PrivateRoute"
 const App = () => {
   return (
     <AuthProvider>
-      <Router>
-        <NavBar />
-        <div className="App" style={{background: `url(${backgroundImage})`}}>
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/pokemon/:pokemonIndex" component={Pokemon} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-        </div>
-      </Router>
+      <div className="App" id="appContainer" style={{background: `url(${backgroundImage})`}}>
+        <Router>
+          <NavBar />
+            <PrivateRoute exact path="/" component={Home} />
+            <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
+        </Router>
+      </div>
     </AuthProvider>
   )
 }

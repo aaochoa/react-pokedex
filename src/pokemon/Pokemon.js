@@ -17,8 +17,7 @@ export default class Pokemon extends Component {
     const {pokemonIndex} = this.props.match.params
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`
     const pokeRes = await Axios.get(pokemonUrl)
-    const types = pokeRes.data.types.map(type => type.type.name);
-    console.log(types)
+    const types = pokeRes.data.types.map(type => type.type.name)
     await this.setState({imageUrl: pokeRes.data.sprites.front_default, pokemonIndex: pokemonIndex, name: pokeRes.data.name, types: types, height: pokeRes.data.height, weight: pokeRes.data.weight, moves: pokeRes.data.moves})
   }
 

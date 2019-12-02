@@ -51,8 +51,8 @@ export default class PokemonCard extends Component {
 
   render() {
     return (
-      <div className="col-md-3 col-sm-6 mb-5" id={this.state.name}>
-        <StyledLink className="card-link" to={`pokemon/${this.state.pokemonIndex}`}> 
+      <div className="col-md-3 col-sm-4 mb-2" id={this.state.name}>
+        <StyledLink className="card-link" to={`pokemon/${this.state.pokemonIndex}`} target="_blank"> 
           <Card className="card text-white bg-danger mb-3">
             <h5 className="card-header">{this.state.pokemonIndex}</h5>
              {this.state.toManyRequests ? (
